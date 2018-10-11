@@ -4,6 +4,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
+import axios from 'axios';
 
 import './styles/styles.min.css';
 
@@ -19,16 +20,27 @@ class App extends Component {
         super(props);
 
         this.state = {
-			name: 'Vincent',
-			input: ''
+			name: 'Guest',
+			lists: []
 		}
 		
 		this.changeName = this.changeName.bind(this);
 	}
+
+	// Get API, push to state
+	componentDidMount() {
+		axios.get('https://jsonplaceholder.typicode.com/posts')
+		.then(response => {
+			this.setState({ 
+				lists: response.data 
+			});
+		})
+	}
 	
-	changeName(event) {
+	// Change user's name based on input value
+	changeName = (inputName) => {
 		this.setState({
-			name: event.target.value
+			name: inputName
 		});
 	}
 
@@ -42,11 +54,9 @@ class App extends Component {
 						<Sidenav />
 						<div className="main-content">
 							<Switch>
-								{/* <Route exact path="/" component={Home} name={this.state.name} /> */}
-
-								<Route exact path="/" render={()=><Home name={this.state.name} input={this.state.input} changeName={this.changeName}/>} />
-								<Route exact path="/nestedtab" component={NestedTab} />
-								<Route exact path="/list" component={List} />
+								<Route exact path="/" render={() => <Home name={this.state.name} changeName={this.changeName} />} />
+								<Route path="/nestedtab" render={() => <NestedTab name={this.state.name} />} />
+								<Route path="/list" render={() => <List lists={this.state.lists} />} />
 							</Switch>
 						</div>
 					</div>

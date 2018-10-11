@@ -36,6 +36,7 @@ code {
 
 .sidenav {
     width: 18%;
+    max-height: fit-content;
     padding: 0 20px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -71,22 +72,171 @@ code {
 .main-content {
     width: 80%;
     padding: 0 20px;
+}
 
+.home {
     input {
         width: 400px;
         height: 40px;
         font-size: 20px;
-        border-radius: 5px 0 0 5px;
+        border-radius: 5px;
         border: 2px solid #ddd;
         text-indent: 10px;
     }
+}
 
-    button {
-        height: 40px;
-        font-size: 20px;
+.nestedtab {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    text-align: center;
+
+    li {
+        width: 50%;
+    }
+
+    li .active {
+        background: lightblue;
+        opacity: 1;
+    }
+
+    li:first-child a {
+        border-radius: 5px 0 0 5px;
+    }
+
+    li:last-child a {
         border-radius: 0 5px 5px 0;
-        border: 2px solid #ddd;
-        background: #ddd;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        opacity: 0.5;
+        padding: 10px;
+        transition: all 0.3s;
+        background: lightgray;
+    }
+}
+
+.list {
+    padding: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .number {
+        width: 5%;
+    }
+
+    .list-content {
+        width: 94%;
+    }
+
+    .title {
+        margin-top: 0;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+
+    .bodytext {
+        margin-top: 0;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0;
+
+    li {
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 40px;
+        text-align: center;
         cursor: pointer;
+        transition: all 0.3s;
+
+        &.active {
+            background: lightblue;
+        }
+    }
+}
+
+
+
+/* Responsive styles
+======================================= */
+@media screen and (max-width: 1024px) {
+    .header,
+    .body {
+        padding: 20px;
+    }
+
+    .sidenav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        flex-direction: row;
+        padding: 0;
+
+        ul {
+            display: flex;
+            margin: 0;
+        }
+
+        li {
+            width: calc(100% / 3);
+            margin: 0;
+            text-align: center;
+
+            .active {
+                padding: 10px;
+            }
+        }
+
+        a {
+            border-radius: 0;
+        }
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .home {
+        input {
+            width: 100%;
+        }
+    }
+
+    .list {
+        padding: 0;
+    
+        li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    
+        .number {
+            width: 10%;
+        }
+    
+        .list-content {
+            width: 88%;
+        }
     }
 }
