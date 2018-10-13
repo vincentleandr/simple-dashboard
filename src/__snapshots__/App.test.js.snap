@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches the snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="header"
+  >
+    <span>
+      Simple Dashboard App
+    </span>
+  </div>
+  <div
+    className="body"
+  >
+    <nav
+      className="sidenav"
+    >
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            className="active"
+            href="/"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            <span>
+              Home
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/nestedtab"
+            onClick={[Function]}
+          >
+            <span>
+              Nested Tab
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/list"
+            onClick={[Function]}
+          >
+            <span>
+              List
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      className="main-content"
+    >
+      <div
+        className="home"
+      >
+        <h1>
+          Welcome, 
+          Guest
+           !
+        </h1>
+        <input
+          onChange={[Function]}
+          placeholder="Type your name here..."
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
