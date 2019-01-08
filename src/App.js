@@ -42,7 +42,6 @@ class App extends Component {
 		this.setState({
 			name: inputName
 		});
-		console.log('test');
 	}
 
 	render() {
